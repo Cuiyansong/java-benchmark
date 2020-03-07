@@ -1,6 +1,5 @@
 package com.cuiyansong.benchmark.demo;
 
-import com.cuiyansong.benchmark.demo.stream.FilterPerf;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
@@ -13,9 +12,7 @@ public class DemoApplication {
 
   public static void main(String[] args) throws RunnerException {
     SpringApplication.run(DemoApplication.class, args);
-    Options opt = new OptionsBuilder()
-//            .include(FilterPerf.class.getSimpleName())
-            .forks(1).build();
+    Options opt = new OptionsBuilder().forks(1).build();
     new Runner(opt).run();
   }
 }
