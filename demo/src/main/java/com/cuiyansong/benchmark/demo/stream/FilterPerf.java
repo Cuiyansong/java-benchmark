@@ -38,11 +38,15 @@ public class FilterPerf {
         .filter(i -> i % 2 == 0)
         .filter(i -> i % 5 == 0)
         .filter(i -> i % 3 == 0)
+        .limit(1000)
         .toArray();
   }
 
   @Benchmark
   public Object[] measureStreamFilterOnlyOne() {
-    return Arrays.stream(collections).filter(i -> i % 5 == 0 && i % 2 == 0 && i % 3 == 0).toArray();
+    return Arrays.stream(collections)
+        .filter(i -> i % 5 == 0 && i % 2 == 0 && i % 3 == 0)
+        .limit(1000)
+        .toArray();
   }
 }
